@@ -1244,11 +1244,12 @@
    Y      400            24000          64000         160       1.8
    Z       15              900          24000        1600       1.8
    E0     100             6000          53600         536       0.9
+*/
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
  */
-//#define EDITABLE_STEPS_PER_UNIT
+#define EDITABLE_STEPS_PER_UNIT
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1354,7 +1355,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 #define USE_PROBE_FOR_Z_HOMING

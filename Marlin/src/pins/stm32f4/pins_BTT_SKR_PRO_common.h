@@ -181,14 +181,16 @@
 //
 // SPI pins for TMC2130 stepper drivers
 //
-#ifndef TMC_SPI_MOSI
-  #define TMC_SPI_MOSI                      PC12
-#endif
-#ifndef TMC_SPI_MISO
-  #define TMC_SPI_MISO                      PC11
-#endif
-#ifndef TMC_SPI_SCK
-  #define TMC_SPI_SCK                       PC10
+#if ENABLED(TMC_USE_SW_SPI)
+  #ifndef TMC_SW_MOSI
+    #define TMC_SW_MOSI                     PC12
+  #endif
+  #ifndef TMC_SW_MISO
+    #define TMC_SW_MISO                     PC11
+  #endif
+  #ifndef TMC_SW_SCK
+    #define TMC_SW_SCK                      PC10
+  #endif
 #endif
 
 #if HAS_TMC_UART
@@ -453,7 +455,7 @@
     #define BTN_EN1                  EXP1_08_PIN
     #define BTN_EN2                  EXP1_06_PIN
 
-    #define LCD_PINS_ENABLE          EXP1_03_PIN
+    #define LCD_PINS_EN              EXP1_03_PIN
     #define LCD_PINS_D4              EXP1_05_PIN
 
   #elif ENABLED(MKS_MINI_12864)
@@ -505,7 +507,7 @@
     #define BTN_EN1                  EXP2_08_PIN
     #define BTN_EN2                  EXP2_06_PIN
 
-    #define LCD_PINS_ENABLE          EXP1_08_PIN
+    #define LCD_PINS_EN              EXP1_08_PIN
     #define LCD_PINS_D4              EXP1_06_PIN
 
     #if ENABLED(FYSETC_MINI_12864)
@@ -575,4 +577,3 @@
   #define ESP_WIFI_MODULE_ENABLE_PIN        PG1
   #define ESP_WIFI_MODULE_GPIO0_PIN         PF14
   #define ESP_WIFI_MODULE_GPIO2_PIN         PF15
-#endif

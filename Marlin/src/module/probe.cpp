@@ -833,6 +833,10 @@ float Probe::run_z_probe(const bool sanity_check/*=true*/, const_float_t z_min_p
 
       const float z = DIFF_TERN(HAS_DELTA_SENSORLESS_PROBING, current_position.z, largest_sensorless_adj);
 
+      #if TOTAL_PROBING > 0 //????
+        SERIAL_ECHOLNPAIR_F("Probe raw  :", z); //????
+      #endif //????
+
       #if EXTRA_PROBING > 0
         // Insert Z measurement into probes[]. Keep it sorted ascending.
         for (uint8_t i = 0; i <= p; ++i) {                            // Iterate the saved Zs to insert the new Z
@@ -895,6 +899,8 @@ float Probe::run_z_probe(const bool sanity_check/*=true*/, const_float_t z_min_p
     const float measured_z = current_position.z;
 
   #endif
+
+  SERIAL_ECHOLNPAIR_F("Probe final:", measured_z); //????
 
   return DIFF_TERN(HAS_HOTEND_OFFSET, measured_z, hotend_offset[active_extruder].z);
 }

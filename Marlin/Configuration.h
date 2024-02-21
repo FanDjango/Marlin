@@ -399,7 +399,7 @@
 #if ENABLED(PSU_CONTROL)
   //#define MKS_PWC                 // Using the MKS PWC add-on
   //#define PS_OFF_CONFIRM          // Confirm dialog when power off
-  //#define PS_OFF_SOUND            // Beep 1s when power off
+  #define PS_OFF_SOUND              // Beep 1s when power off
   #define PSU_ACTIVE_STATE HIGH     // Set 'LOW' for ATX, 'HIGH' for X-Box
 
   //#define PSU_DEFAULT_OFF               // Keep power off until enabled directly with M80
@@ -862,7 +862,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 500
+#define EXTRUDE_MAXLENGTH 750
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -1258,7 +1258,7 @@
  */
 #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 100 }
 
-//#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
+#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
   #define MAX_FEEDRATE_EDIT_VALUES    { 500, 500, 20, 150 } // ...or, set your own edit limits
 #endif
@@ -1271,7 +1271,7 @@
  */
 #define DEFAULT_MAX_ACCELERATION      { 250, 250, 250, 750 }
 
-//#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
+#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
   #define MAX_ACCEL_EDIT_VALUES       { 500, 500, 250, 1000 } // ...or, set your own edit limits
 #endif
@@ -1711,9 +1711,9 @@
   //#define WAIT_FOR_HOTEND         // Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)
 #endif
 #define PROBING_FANS_OFF          // Turn fans off when probing
-//#define PROBING_ESTEPPERS_OFF     // Turn all extruder steppers off when probing
+#define PROBING_ESTEPPERS_OFF     // Turn all extruder steppers off when probing
 //#define PROBING_STEPPERS_OFF      // Turn all steppers off (unless needed to hold position) when probing (including extruders)
-#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
+#define DELAY_BEFORE_PROBING 250  // (ms) To prevent vibrations from triggering piezo sensors
 
 // Require minimum nozzle and/or bed temperature for probing
 //#define PREHEAT_BEFORE_PROBING
@@ -2058,7 +2058,7 @@
  * Commands to execute at the end of G29 probing.
  * Useful to retract or move the Z probe out of the way.
  */
-//#define EVENT_GCODE_AFTER_G29 "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10"
+#define EVENT_GCODE_AFTER_G29 "G28"
 
 /**
  * Normally G28 leaves leveling disabled on completion. Enable one of

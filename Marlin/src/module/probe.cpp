@@ -834,7 +834,7 @@ float Probe::run_z_probe(const bool sanity_check/*=true*/, const_float_t z_min_p
       const float z = DIFF_TERN(HAS_DELTA_SENSORLESS_PROBING, current_position.z, largest_sensorless_adj);
 
       #if TOTAL_PROBING > 0 //????
-        SERIAL_ECHOLNPAIR_F("Probe raw  :", z); //????
+        SERIAL_ECHOLNPGM_P("Probe raw  :", z); //????
       #endif //????
 
       #if EXTRA_PROBING > 0
@@ -900,7 +900,7 @@ float Probe::run_z_probe(const bool sanity_check/*=true*/, const_float_t z_min_p
 
   #endif
 
-  SERIAL_ECHOLNPAIR_F("Probe final:", measured_z); //????
+  SERIAL_ECHOLNPGM_P("Probe final:", measured_z); //????
 
   return DIFF_TERN(HAS_HOTEND_OFFSET, measured_z, hotend_offset[active_extruder].z);
 }

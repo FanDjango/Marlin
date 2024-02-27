@@ -1590,7 +1590,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -41.7, -10.2, -2.59 } // -1.8 ->> -1.9 goes closer to bed
+#define NOZZLE_TO_PROBE_OFFSET { -41.7, -10.2, -2.66 } // -1.8 ->> -1.9 goes closer to bed
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0

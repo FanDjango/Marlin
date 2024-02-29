@@ -467,7 +467,9 @@ void MarlinUI::clear_lcd() { lcd.clear(); }
 
   void MarlinUI::show_bootscreen() {
     set_custom_characters(CHARSET_BOOT);
+    safe_delay(250);
     lcd.clear();
+    safe_delay(250);
 
     #define LCD_EXTRA_SPACE (LCD_WIDTH-8)
 

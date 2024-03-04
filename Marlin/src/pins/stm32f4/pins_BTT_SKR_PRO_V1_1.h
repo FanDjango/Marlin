@@ -78,3 +78,8 @@
 //#define Z_MAX_PIN                           PG8
 #undef Z_MIN_PIN
 //#define Z_MIN_PIN                           PG5  // free for use, it is the Z_MAX socket
+
+// FANx: ../..        - inside 24V power supply
+// FAN0: yellow/blue  - parts cooling fan
+// FAN1: red/black    - extruder fan
+// FAN2: red/black    - small controller fan under chassis

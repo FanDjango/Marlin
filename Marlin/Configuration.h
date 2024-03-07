@@ -1235,7 +1235,7 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 268 } // E0: 278 calib
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 278 } 
 
 /* ENDER 5 PLUS PRO:
 
@@ -1243,13 +1243,13 @@
    X      400            24000          64000         160       1.8
    Y      400            24000          64000         160       1.8
    Z       15              900          24000        1600       1.8
-   E0     100             6000          53600         536       0.9
+   E0     100             6000          55600         556       0.9
 */
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
  */
-//#define EDITABLE_STEPS_PER_UNIT
+#define EDITABLE_STEPS_PER_UNIT
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1590,7 +1590,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -41.7, -10.2, -3.60 } // -1.8 ->> -1.9 goes closer to bed
+#define NOZZLE_TO_PROBE_OFFSET { -41.7, -8.2, -2.10 } // -1.8 ->> -1.9 goes closer to bed
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1609,7 +1609,7 @@
 #define Z_PROBE_FEEDRATE_FAST 600
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_FEEDRATE_SLOW 100
+#define Z_PROBE_FEEDRATE_SLOW 120
 
 /**
  * Probe Activation Switch
@@ -1682,12 +1682,12 @@
 #define Z_PROBE_LOW_POINT          -2 // (mm) Farthest distance below the trigger-point to go before stopping
 
 // For M851 provide ranges for adjusting the X, Y, and Z probe offsets
-//#define PROBE_OFFSET_XMIN -50   // (mm)
-//#define PROBE_OFFSET_XMAX  50   // (mm)
-//#define PROBE_OFFSET_YMIN -50   // (mm)
-//#define PROBE_OFFSET_YMAX  50   // (mm)
-//#define PROBE_OFFSET_ZMIN -20   // (mm)
-//#define PROBE_OFFSET_ZMAX  20   // (mm)
+#define PROBE_OFFSET_XMIN -50   // (mm)
+#define PROBE_OFFSET_XMAX -30   // (mm)
+#define PROBE_OFFSET_YMIN -20   // (mm)
+#define PROBE_OFFSET_YMAX   0   // (mm)
+#define PROBE_OFFSET_ZMIN  -4   // (mm)
+#define PROBE_OFFSET_ZMAX   0   // (mm)
 
 // Enable the M48 repeatability test to test probe accuracy
 #define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -2127,7 +2127,7 @@
 #if ANY(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 7
+  #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -2406,8 +2406,8 @@
 // Preheat Constants - Up to 10 are supported without changes
 //
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_HOTEND 200
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 

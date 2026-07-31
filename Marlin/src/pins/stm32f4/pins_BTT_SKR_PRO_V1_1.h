@@ -51,7 +51,7 @@
 // X MIN SOCKET used for x_max_switch  PB10
 // X MAX SOCKET used for ____free____  PE15 // free for use
 //
-#undef X_OTHER_PIN
+#undef X_OTHR_PIN // Make sure this is undefined, so that is really free for use.
 
 // Y homes to the MAX end.
 // The YMAX switch is plugged in to the YMIN socket on the board, so LED indicators work
@@ -59,7 +59,7 @@
 // Y MIN SOCKET used for y_max_switch  PE12
 // Y MAX SOCKET used for ____free____  PE10 // free for use
 //
-#undef Y_OTHER_PIN
+#undef Y_OTHR_PIN // Make sure this is undefined, so that is really free for use.
 
 // Z used to home to the MAX end. Currently not used because homing to min with probe
 // The ZMAX switch is still plugged in to the ZMIN socket on the board, so LED indicators work
@@ -67,11 +67,11 @@
 // Z MIN SOCKET used for z_max_switch  PG8
 // Z MAX SOCKET used for ____free____  PG5 // free for use
 //
-#undef Z_OTHER_PIN
+#undef Z_OTHR_PIN // Make sure this is undefined, so that is really free for use. ** IMPORTANT **
+
 
 #undef FIL_RUNOUT2_PIN
 #undef FIL_RUNOUT3_PIN
-
 
 // FANx: ../..        - inside 24V power supply
 // FAN0: yellow/blue  - parts cooling fan

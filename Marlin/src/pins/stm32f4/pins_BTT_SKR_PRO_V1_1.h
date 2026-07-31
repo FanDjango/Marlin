@@ -42,46 +42,44 @@
 #include "pins_BTT_SKR_PRO_common.h"
 
 //
-// Limit Switches fix
-// (only valid if not using SENSORLESS HOMING, see included _common file)
+// Limit Switches on my printer
 //
 
 // X homes to the MAX end.
 // The XMAX switch is plugged in to the XMIN socket on the board, so LED indicators work
-// Thus X_MAX_PIN is set to PB10, physically the X_MIN socket.
-// The X_MAX socket, PE15, is free and can be used for anything.
 //
-// X_MAX_PIN                           PB10
-// X_MIN_PIN                           PE15 // free for use, it is the X_MAX socket
-#undef X_STOP_PIN
-#define X_STOP_PIN                     PB10
-
+// X MIN SOCKET used for x_max_switch  PB10
+// X MAX SOCKET used for ____free____  PE15 // free for use
+//
+#undef X_OTHER_PIN
 
 // Y homes to the MAX end.
 // The YMAX switch is plugged in to the YMIN socket on the board, so LED indicators work
-// Thus Y_MAX_PIN is set to PE12, physically the Y_MIN socket.
-// The Y_MAX socket, PE10, is free and can be used for anything.
 //
-// Y_MAX_PIN                           PE12
-// Y_MIN_PIN                           PE10 // used by FILAMENT_RUNOUT_SENSOR, it is the Y_MAX socket
-#undef Y_STOP_PIN
-#define Y_STOP_PIN                     PE12
+// Y MIN SOCKET used for y_max_switch  PE12
+// Y MAX SOCKET used for ____free____  PE10 // free for use
+//
+#undef Y_OTHER_PIN
 
-// Z homes to the MAX end. Currently not used because homing to min with probe
-// The ZMAX switch is plugged in to the ZMIN socket on the board, so LED indicators work
-// Thus Z_MAX_PIN is set to PG8, physically the Z_MIN socket.
-// The Z_MAX socket, PG5, is free and can be used for anything.
+// Z used to home to the MAX end. Currently not used because homing to min with probe
+// The ZMAX switch is still plugged in to the ZMIN socket on the board, so LED indicators work
 //
-// Z_MAX_PIN                           PG8
-// Z_MIN_PIN                           PG5  // free for use, it is the Z_MAX socket
-#undef Z_STOP_PIN
-#define Z_STOP_PIN                     PG8
-                                            // define it for M43 compile to work.
+// Z MIN SOCKET used for z_max_switch  PG8
+// Z MAX SOCKET used for ____free____  PG5 // free for use
+//
+#undef Z_OTHER_PIN
+
+#undef FIL_RUNOUT2_PIN
+#undef FIL_RUNOUT3_PIN
+
 
 // FANx: ../..        - inside 24V power supply
 // FAN0: yellow/blue  - parts cooling fan
 // FAN1: red/black    - extruder fan
 // FAN2: red/black    - small controller fan under chassis
 
+// Second Z stepper is on the E1 stepper port, so no need to define Z2_STEP_PIN, Z2_DIR_PIN, Z2_ENABLE_PIN
 #define NO_AUTO_ASSIGN_WARNING
+
+// We don't use the DIAG pins for sensorless homing
 #define DIAG_PINS_REMOVED
